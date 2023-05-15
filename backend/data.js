@@ -1,0 +1,72 @@
+import bcrypt from 'bcryptjs';
+const data = {
+  users: [
+    {
+      name: 'Basir',
+      email: 'admin@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: true,
+    },
+    {
+      name: 'John',
+      email: 'user@example.com',
+      password: bcrypt.hashSync('123456'),
+      isAdmin: false,
+    },
+  ],
+  products: [
+    {
+      // _id: '1',
+      name: 'Aastin-tshirt',
+      slug: 'aastin-tshirt',
+      category: 'Shirts',
+      image: '/images/aastin_tshirt.jpg', // 679px × 829px
+      price: 120,
+      countInStock: 10,
+      brand: 'AP',
+      rating: 4.5,
+      numReviews: 10,
+      description: 'high quality shirt',
+    },
+    {
+      //_id: '2',
+      name: 'Denial-cap',
+      slug: 'Denial-cap',
+      category: 'Shirts',
+      image: '/images/Denial_cap.jpg',
+      price: 250,
+      countInStock: 0,
+      brand: 'AP',
+      rating: 4.0,
+      numReviews: 10,
+      description: 'high quality product',
+    },
+    {
+      //_id: '3',
+      name: 'Denial-tshirt',
+      slug: 'Denial-tshirt',
+      category: 'Shirts',
+      image: '/images/Denial_tshirt.jpg',
+      price: 25,
+      countInStock: 15,
+      brand: 'AP',
+      rating: 4.5,
+      numReviews: 14,
+      description: 'high quality product',
+    },
+    {
+      //_id: '4',
+      name: 'Sink-tshirt',
+      slug: 'sink-tshirt',
+      category: 'Shirts',
+      image: '/images/sink_tshirt.jpg',
+      price: 65,
+      countInStock: 5,
+      brand: 'AP',
+      rating: 4.5,
+      numReviews: 10,
+      description: 'high quality product',
+    },
+  ],
+};
+export default data;
