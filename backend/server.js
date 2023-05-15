@@ -58,6 +58,15 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
+/*
+This code is serving a React application using Express.js.
+The path module is imported and used to resolve the absolute path of the current directory, which is then assigned to the __dirname constant.
+The app.use() method is called to configure the application to serve static files from the frontend/build directory using the express.static() middleware.
+The express.static() middleware serves static files such as HTML, CSS, and JavaScript files. In this case, it is used to serve the compiled assets of a React application that have been generated with npm build or yarn build and stored in the frontend/build directory.
+The app.get() method is then called with a wildcard (*) to match any request that is not handled by the other defined routes.
+When a request matches this route, the callback function is executed. The callback function uses the res.sendFile() method to send the index.html file located in the frontend/build directory as a response to the client.
+This is typically used to serve the React application's main HTML file, which loads the JavaScript files and other assets required to run the application. By serving the index.html file for all unmatched routes, the React application can handle its own routing client-side, allowing for a single-page application experience.
+ */
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) =>
