@@ -72,7 +72,16 @@ app.use(express.static(path.join(__dirname, '/frontend/build')));
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
 );
-
+/*
+This code is configuring the Express.js application to handle errors and listen for incoming HTTP requests on a specified port.
+The first middleware function added with app.use() is a general error handler function that takes four arguments: err, req, res, and next.
+This middleware function will be called when an error is thrown or when next(err) is called from any middleware function or route handler in the application.
+The function sets the HTTP status code to 500 and sends a JSON response back to the client with an error message indicating the cause of the error.
+The second part of the code defines the port on which the application will listen for incoming requests.
+The process.env.PORT variable is used to determine the port number from the environment variable PORT if it exists, or defaults to port 5000 if the environment variable is not set.
+The app.listen() method is then called with the port number and a callback function that logs a message to the console indicating that the server is now running and listening on the specified port.
+By calling app.listen(), the Express.js application starts listening for incoming requests on the specified port.
+*/
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
