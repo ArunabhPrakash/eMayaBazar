@@ -1,3 +1,43 @@
+/*
+The code you provided is for the `OrderScreen` component. Here's an explanation of the code:
+
+1. Import statements:
+   - The necessary dependencies and components are imported, including React, hooks, components from `react-bootstrap`, `react-toastify`, and `@paypal/react-paypal-js`.
+   - The `Helmet` component is imported from `react-helmet-async` for setting the document title.
+   - Utility functions and the `Store` context are also imported.
+2. Reducer function:
+   - The `reducer` function handles different actions related to fetching and paying for an order.
+   - It updates the state based on the action type:
+     - `'FETCH_REQUEST'`: Sets the `loading` property to `true` and clears the `error` property.
+     - `'FETCH_SUCCESS'`: Sets the `order` property to the fetched order data, sets `loading` to `false`, and clears the `error` property.
+     - `'FETCH_FAIL'`: Sets the `loading` property to `false` and updates the `error` property with the error message.
+     - `'PAY_REQUEST'`: Sets the `loadingPay` property to `true`.
+     - `'PAY_SUCCESS'`: Sets the `loadingPay` property to `false` and sets the `successPay` property to `true`.
+     - `'PAY_FAIL'`: Sets the `loadingPay` property to `false`.
+     - `'PAY_RESET'`: Sets the `loadingPay` and `successPay` properties to `false`.
+     - Default case: Returns the current state.
+3. `OrderScreen` component:
+   - The component is defined as a function component.
+   - The `useContext` hook is used to access the global state from the `Store` context.
+   - The `useParams` hook is used to get the `id` parameter from the route.
+   - The `useNavigate` hook is used to navigate to different routes.
+   - The `useReducer` hook is used to manage the component's state with the `reducer` function.
+   - The initial state is set with `loading` set to `true`, `order` set to an empty object, `error` set to an empty string, `successPay` set to `false`, and `loadingPay` set to `false`.
+   - The `usePayPalScriptReducer` hook is used to manage the PayPal script loading state.
+   - The `createOrder` function is defined to create the PayPal order.
+   - The `onApprove` function is defined to handle the payment approval process.
+   - The `onError` function is defined to handle payment errors.
+   - An effect hook is used to fetch the order details when the `order`, `userInfo`, `orderId`, `navigate`, `paypalDispatch`, or `successPay` changes.
+   - Within the effect, the `fetchOrder` function is defined to handle the fetch request for the order details.
+   - If the `userInfo` is not available, the user is redirected to the login page.
+   - If the `order` is not available or the payment was successful or the current order ID doesn't match the fetched order ID, the `fetchOrder` function is called.
+   - If the payment was successful (`successPay` is `true`), the state is reset using the `'PAY_RESET'` action.
+   - Otherwise, the PayPal script is loaded using the `loadPaypalScript` function.
+   - The return statement renders the component JSX based on the state:
+     - If `loading` is true, a `LoadingBox` component is rendered.
+     - If `error` is present, a `MessageBox` component with a danger variant is rendered
+*/
+
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';

@@ -1,3 +1,15 @@
+/*
+This is a React component called `SigninScreen` that represents the sign-in form for the user authentication process. Let's go through the code and explain its functionality:
+1. Import statements: The necessary dependencies and components are imported from various libraries, such as React, React Bootstrap, React Router, React Helmet, and others.
+2. Component and state variables: The component is exported as the default export and defined as a functional component. It uses hooks such as `useState`, `useEffect`, and `useContext` for managing state and side effects. The `useState` hook is used to define state variables for the email and password fields. These variables are initialized with empty strings.
+3. Context and user information: The component accesses the global state and dispatch function from the `Store` context using the `useContext` hook. It extracts the `userInfo` object from the state.
+4. Form submission handler: The `submitHandler` function is triggered when the sign-in form is submitted. It prevents the default form submission behavior and sends a POST request to the `/api/users/signin` endpoint with the email and password as the payload. If the request is successful, the user information is stored in the global state and local storage, and the user is redirected to the specified redirect URL or the home page. If there is an error, a toast message displaying the error is shown.
+5. useEffect hook: The `useEffect` hook is used to check if the user is already signed in. If the `userInfo` object is not empty, it means the user is already signed in, so the user is immediately redirected to the specified redirect URL or the home page.
+6. Rendered JSX: The component renders a sign-in form using the `Form` component from React Bootstrap. The form includes input fields for the user's email and password. The values of these fields are bound to the corresponding state variables using the `value` and `onChange` attributes. When the user updates the form fields, the state variables are updated accordingly. The form also includes a submit button for signing in and a link to the sign-up page for new customers.
+7. Helmet component: The `Helmet` component from React Helmet is used to update the document's title, setting it to "Sign In."
+8. Container component: The `Container` component from React Bootstrap is used to provide a responsive container for the sign-in form.
+Overall, this component provides a user interface for entering the email and password for signing in. It sends a request to the server to authenticate the user, updates the global state with the user information upon successful sign-in, and handles redirection based on the specified redirect URL.
+*/
 import Axios from 'axios';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';

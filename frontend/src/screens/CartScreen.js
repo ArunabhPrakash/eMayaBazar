@@ -1,3 +1,26 @@
+/*
+The code you provided defines a functional component named `CartScreen`, which represents the shopping cart screen of an e-commerce application. Here's an explanation of how it works:
+1. The component imports necessary dependencies and custom components from various libraries.
+2. It imports the `useContext` hook from React to access the global state and dispatch functions from the `Store` context.
+3. Inside the component, it initializes variables using the `useContext` hook to extract the `cartItems` array from the global state.
+4. The component defines several event handler functions:
+   - `updateCartHandler`: Handles the updating of cart items by dispatching a `CART_ADD_ITEM` action with the updated item quantity.
+   - `removeItemHandler`: Handles the removal of a cart item by dispatching a `CART_REMOVE_ITEM` action with the item to be removed.
+   - `checkoutHandler`: Handles the checkout process by navigating to the sign-in page.
+5. The component renders the shopping cart screen layout using Bootstrap components and custom components:
+   - It uses the `<Helmet>` component from the `react-helmet-async` library to set the page title.
+   - It renders a heading for the shopping cart page.
+   - Inside a `<Row>` component, it checks if the cart is empty. If it is, it displays a message and provides a link to go back to shopping.
+   - If the cart is not empty, it renders a `<ListGroup>` component to display the cart items.
+   - Each cart item is rendered as a `<ListGroup.Item>` component.
+   - The item details, including the image, name, quantity, price, and remove button, are displayed in a grid layout using `<Row>` and `<Col>` components.
+   - The quantity of each item can be increased or decreased using the plus and minus buttons.
+   - The subtotal and checkout button are displayed in a separate `<Col>` component.
+   - The subtotal is calculated by reducing the cart items array to the sum of the item prices multiplied by their quantities.
+   - The checkout button is disabled if the cart is empty.
+6. Finally, the `CartScreen` component is exported as the default export.
+This component provides a user interface for managing the shopping cart, updating item quantities, removing items, and proceeding to checkout.
+ */
 import { useContext } from 'react';
 import { Store } from '../Store';
 import { Helmet } from 'react-helmet-async';

@@ -1,3 +1,16 @@
+/*
+The code snippet provided contains CSS styles that define the appearance of different elements in a web page. Here's a breakdown of the styles:
+The `body` style sets the overall appearance of the body element, including margin, font-family, and background-color.
+The `.site-container` style sets the minimum height of the container to 100% of the viewport height, ensuring that the content fills the entire screen.
+The `main` style sets the flex property of the main element to 1, allowing it to expand and fill the available space.
+The `.btn-primary` style sets the background color to `#f0c040` and the text color to `#000000`, creating a primary button appearance.
+The `.products` style sets the display property to flex and wraps the child elements onto multiple lines. It also centers the child elements horizontally within the container.
+The `.product` style sets a border, background color, and margin for each product element.
+The `.product img` style sets the width of the product images to 100% and limits the maximum width to 400 pixels.
+The `.rating span` style sets the color of rating spans to `#ffc000`.
+The `.checkout-steps > div` style sets a border-bottom and color for each step in the checkout process. The `.active` class modifies the style of the active step, changing the border color and text color.
+These CSS styles define the visual appearance of various elements in the web page, such as the body, containers, buttons, product listings, images, ratings, and checkout steps.
+*/
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -1,3 +1,19 @@
+/*
+The code you provided represents a React functional component called `PlaceOrderScreen`. This component renders a preview of the order before the user places it. Let's go through the code step by step:
+1. The required dependencies and components are imported from various libraries and local files.
+2. A reducer function is defined using the `useReducer` hook. This reducer handles the state updates for the loading status of the order placement.
+3. The `PlaceOrderScreen` component is defined as a function. Inside the component, the `useNavigate` hook is used to get the navigation function.
+4. The `useReducer` hook is used to initialize the state and dispatch function based on the provided reducer. The initial state sets the `loading` property to `false`.
+5. The `useContext` hook is used to access the state and dispatch function from the `Store` context.
+6. The `round2` function is defined to round a number to two decimal places.
+7. The `cart` object properties (`itemsPrice`, `shippingPrice`, `taxPrice`, `totalPrice`) are calculated based on the items in the cart and their prices.
+8. The `placeOrderHandler` function is an asynchronous function responsible for handling the order placement. It sends a POST request to the `/api/orders` endpoint with the necessary order information. If the request is successful, it dispatches actions to clear the cart, set the loading state to `false`, removes the cart items from local storage, and navigates the user to the order details page. If there is an error, it dispatches an action to set the loading state to `false` and displays an error message using the `toast.error` function.
+9. The `useEffect` hook is used to check whether the `cart.paymentMethod` is available. If it's not available (i.e., the user hasn't selected a payment method), it navigates the user to the `/payment` page. The effect runs whenever the values of `cart` or `navigate` change.
+10. The component's return statement defines the JSX that will be rendered. It includes the `CheckoutSteps` component, a helmet for setting the document title, a heading, and two columns for displaying shipping/payment information and order summary.
+11. Inside the shipping/payment information column, the shipping address, payment method, and cart items are displayed. The user can also click on "Edit" to navigate to the corresponding pages for editing the information.
+12. Inside the order summary column, the calculated prices for items, shipping, tax, and the total order price are displayed. A "Place Order" button is provided to initiate the order placement process. If the cart is empty, the button is disabled. Additionally, a loading indicator is displayed when the `loading` state is `true`.
+Overall, this component provides a preview of the order details, allows the user to edit relevant information, and handles the order placement process.
+ */
 import Axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';

@@ -1,3 +1,16 @@
+/*
+This is a React component called `ProfileScreen`, which represents a user profile page. Let's go through the code and explain its functionality:
+1. Import statements: The necessary dependencies and components are imported from various libraries, such as React, React Bootstrap, React Helmet, and Axios.
+2. Reducer function: The `reducer` function is a callback function used by the `useReducer` hook. It handles state updates for the loading status during profile updates.
+3. ProfileScreen component: This is the main component exported as the default export. It is a functional component that uses hooks such as `useState`, `useContext`, and `useReducer` for managing state and side effects.
+4. State variables: The component initializes state variables using the `useState` hook. These variables hold the current values of the user's name, email, password, and confirmPassword.
+5. Reducer state: The `useReducer` hook is used to manage loading states related to profile updates. The `loadingUpdate` state variable represents whether the update request is in progress.
+6. Context and user information: The component accesses the global state and dispatch function from the `Store` context using the `useContext` hook. It extracts the `userInfo` object from the state, which contains user-related information.
+7. Form submission handler: The `submitHandler` function is triggered when the form is submitted. It prevents the default form submission behavior and makes an asynchronous request to update the user's profile using the `axios.put` method. The request includes the updated name, email, and password, along with the user's token for authentication. If the request is successful, it updates the user's information in the global state, stores the updated user information in local storage, and displays a success toast message. If there's an error, it displays an error toast message.
+8. Rendered JSX: The component renders a form using the `Form` component from React Bootstrap. The form includes input fields for the user's name, email, password, and confirm password. The form fields are bound to the corresponding state variables using the `value` and `onChange` attributes. When the user updates the form fields, the state variables are updated accordingly. The form also includes a submit button for updating the user's profile.
+9. Helmet component: The `Helmet` component from React Helmet is used to update the document's title, setting it to "User Profile."
+Overall, this component provides a user interface for updating the user's profile information, handles form submissions, and communicates with the server using Axios. It leverages React hooks and the global state to manage state and trigger updates when necessary.
+*/
 import React, { useContext, useReducer, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Form from 'react-bootstrap/Form';
