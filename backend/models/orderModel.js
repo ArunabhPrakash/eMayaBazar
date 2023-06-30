@@ -21,7 +21,7 @@ Finally, the Order model is defined by calling mongoose.model() with the name of
 */
 import mongoose from 'mongoose';
 
-const orderSchema = new mongoose.Schema(
+const orderSchema = new mongoose.Schema( //we first create schema which defines all attributes and their property then create model based on it which can be queried
   {
     orderItems: [
       {
