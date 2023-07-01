@@ -53,7 +53,7 @@ orderRouter is registered for the /api/orders endpoint.
 Each router is an instance of an Express Router that has been defined in a separate module.
 By using routers to group related endpoints, the codebase is organized into smaller, more manageable pieces, making it easier to maintain and develop.
 */
-app.use('/api/seed', seedRouter);
+app.use('/api/seed', seedRouter); // and then they are handled by routes.js where extra detail is given, if prod id or slug asked etc
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
